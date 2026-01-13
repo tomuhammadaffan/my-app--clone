@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormInput />
+      <ChildComponent />
     </div>
-  );
+  )
+}
+
+function FormInput() {
+  const [input, setInput] = useState("");
+  return(
+    <>
+         <input 
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+         />
+        <h3>Text input is {input}</h3>
+    </>
+  )
+}
+
+function ChildComponent(){
+  console.log("rendering child component")
+  return <h4>Child Component</h4>
 }
 
 export default App;
